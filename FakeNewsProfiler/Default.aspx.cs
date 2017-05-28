@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.IO;
-using HtmlAgilityPack;
 
 namespace FakeNewsProfiler
 {
@@ -17,6 +11,13 @@ namespace FakeNewsProfiler
             string htmlStripText = SiteParsers.FoxNewsParser("http://www.foxnews.com");
             htmlOutput += "<tr><td>";
             htmlOutput += (htmlStripText);
+            htmlOutput += "</td></tr>";
+            htmlOutput += "<tr><td>";
+            htmlStripText = SiteParsers.BreitbartParser("http://www.breitbart.com");
+            htmlOutput += (htmlStripText);
+            htmlOutput += "</td></tr>";
+            htmlOutput += "<tr><td>";
+            htmlStripText = SiteParsers.CNNParser("http://www.cnn.com");
             htmlOutput += "</td></tr>";
             htmlOutput += "</table>";
         }
